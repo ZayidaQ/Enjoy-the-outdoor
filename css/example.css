@@ -1,0 +1,125 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin-top: 70px; /* To account for the fixed navbar */
+  }
+  
+  /* Navigation */
+  .navbar {
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+    margin-right: 10px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-image: url('path/to/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .hero-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Destinations Section */
+  .destinations {
+    padding: 80px 0;
+    background-color: #f8f8f8;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .destination-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .destination-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .destination-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .destination-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .destination-card .btn-primary {
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
