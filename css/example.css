@@ -1,125 +1,88 @@
-/* styles.css */
+/* ----- Zhayida Haishan ----- */
 
-/* Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Body */
 body {
-    font-family: Arial, sans-serif;
-    margin-top: 70px; /* To account for the fixed navbar */
-  }
-  
-  /* Navigation */
-  .navbar {
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar-brand {
-    font-weight: bold;
-  }
-  
-  .navbar-nav .nav-link {
-    margin-right: 10px;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-image: url('path/to/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .hero-content {
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  .hero-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .hero-description {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
-  }
-  
-  .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 18px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Hero section */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero-section {
+  padding-top: 100px;
+}
+
+/* Navigation Bar */
+.navbar {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #493982;
+  padding: 1vw;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar-brand img{
+  width: 65px;
+} 
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #727272;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #00ff99;
+}
+
+/* Content Container */
+.content {
+  margin-top: 60px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Query for responsive design */
+@media (max-width: 767px) {
+  .navbar-brand img {
+    width: 30px;
+    margin-right: 5px;
   }
 
-  .btn:hover {
-    background-color: #0056b3;
+  .navbar-nav {
+    flex-direction: column;
+    margin-top: 10px;
   }
-  
-  /* Destinations Section */
-  .destinations {
-    padding: 80px 0;
-    background-color: #f8f8f8;
-  }
-  
-  .section-title {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  
-  .destination-card {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .destination-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .destination-card h3 {
-    font-size: 24px;
+
+  .nav-item {
+    margin-left: 0;
     margin-bottom: 10px;
   }
-  
-  .destination-card p {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .destination-card .btn-primary {
-    padding: 8px 20px;
-    font-size: 16px;
-  }
-  
-  /* Footer */
-  .footer {
-    padding: 20px 0;
-    background-color: #f8f8f8;
-    text-align: center;
-  }
-  
+}
