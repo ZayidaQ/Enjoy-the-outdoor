@@ -53,11 +53,9 @@ body {
   font-size: 2.2rem;
   letter-spacing: 1px;
   font-weight: 500;
-  font-size: 50px;
 }
 
 .hero-description {
-  /* width: 50%; */
   color: #ffffff;
   font-size: 0.9rem;
   line-height: 25px;
@@ -72,7 +70,7 @@ body {
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  transition: 0.7s;
+  transition: 0.3s;
   display: inline-block;
   color: #000000;
 }
@@ -151,8 +149,6 @@ body {
 .about-image:hover img {
   transform: scale(1.1);
 }
-
-
 
 /* Navigation Bar */
 .navbar {

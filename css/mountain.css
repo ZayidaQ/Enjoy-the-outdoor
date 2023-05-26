@@ -1,0 +1,149 @@
+/* ----- Zhayida Haishan ----- */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #1c2e4a;
+    padding: 1vw;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand img {
+    width: 65px;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-left: 15px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #727272;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #3a69d7;
+  }
+  
+  /* Hero section */
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .hero-section-nationalPark {
+    padding-top: 100px;
+    background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url("../images/headMountImg.jpeg");
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 50px;
+  }
+  
+  .hero-description {
+    color: #ffffff;
+    font-size: 0.9rem;
+    line-height: 25px;
+  }
+  
+  /* Card styles */
+  .mountain-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .mountain-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .mountain-image {
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .mountain-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .mountain-description {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .mountain-info {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Custom styles for btnHome */
+  .btnHome {
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 10px 35px;
+    background-color: #7591be;
+    font-weight: 600;
+    border-radius: 2px;
+    position: relative;
+  }  
+  
+  .btnHome:hover {
+    background-color: #ffffff;
+    color: #88a6d7;
+  }
+  
+  .btnHome:hover:before {
+    transform: translateY(0);
+  }

@@ -33,13 +33,13 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link active" href="#">National Parks</a>
+            <a class="nav-link active" href="national_park.html">National Parks</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Mountains</a>
+            <a class="nav-link" href="mountain_pg.html">Mountains</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Capstone Peoject 2</a>
+            <a class="nav-link disabled" href="#">Capstone Project 2</a>
           </li>
         </ul>
       </div>
@@ -48,24 +48,25 @@
   <main>
     <!-- Hero Section -->
     <section class="hero-section-nationalPark">
-        <div class="hero-container">
-          <h1 class="hero-title">National Parks Search</h1>
-          <p class="hero-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-          <a href="#" class="btnHome" id="btnViewAll">View All National Parks</a>
-          <form action="">
-
-            <label for="filterSearchBy"></label>
-            <select class="form-select" id="filterSearchBy"></select>
-
-            <label for="searchTypeList" id="labelSearchTypeList"></label>
-            <select class="form-select" id="searchTypeList"></select>
-
-            <div id="divParksList">
-              <label for="parksList">Choose a park:</label>
-              <select class="form-select" id="parksList"></select>
-            </div>
-          </form>
-      </section>
+      <div class="hero-container">
+        <h1 class="hero-title">National Parks Search</h1>
+        <p class="hero-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        <a href="#" class="btnHome" id="btnViewAll">View All</a>
+        
+        <form action="">
+          <label for="filterSearchBy"></label>
+          <select class="form-select" id="filterSearchBy" placeholder="Select a filter"></select>
+    
+          <label for="searchTypeList" id="labelSearchTypeList"></label>
+          <select class="form-select" id="searchTypeList" placeholder="Select a search type"></select>
+    
+          <div id="divParksList" class="mt-4">
+            <label for="parksList"></label>
+            <select class="form-select" id="parksList" placeholder="Select a park"></select>
+          </div>
+        </form>
+      </div>
+    </section>    
 
       <section class="parks-info-section">
         <div class="container">
