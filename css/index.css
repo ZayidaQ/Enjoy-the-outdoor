@@ -150,6 +150,26 @@ body {
   transform: scale(1.1);
 }
 
+/* Banner */
+#about {
+  background-color: #ffffff;
+  padding: 50px;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+
+
 /* Navigation Bar */
 .navbar {
   justify-content: space-between;

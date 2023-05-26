@@ -1,65 +1,57 @@
-//Author: Zhayida Haishan
-
-// ------- script ------- //
+// Author: Zhayida Haishan
 
 import { mountainsArray } from "./mountainData.js";
 import { createNewDropdown } from "./script.js";
 
-const mountainsList = document.querySelector("#mountainsList");
-const displayMountainInfo = document.querySelector("#displayMountainInfo");
+const listOfMountain = document.querySelector("#mountainsList");
+const mountainInfoSection = document.querySelector("#displayMountainInfo");
 
-// On page load
 window.onload = () => {
-  createNewDropdown(getMountainNames(mountainsArray), "#mountainsList");
-  mountainsList.addEventListener("change", createMountainInfoCard);
+  createNewDropdown(retrieveMountainNames(mountainsArray), "#mountainsList");
+  listOfMountain.addEventListener("change", generateMountainCard);
 };
 
-// Get mountain names from the array
-function getMountainNames(array) {
+function retrieveMountainNames(array) {
   return array.map((obj) => obj.name).sort();
 }
 
-// Create info card for the selected mountain and display
-function createMountainInfoCard() {
-  const selectedMountain = mountainsList.value;
-  const mountain = mountainsArray.find((obj) => obj.name === selectedMountain);
+function generateMountainCard() {
+  const selectedMountainElement = listOfMountain.value;
+  const mountain = mountainsArray.find((obj) => obj.name === selectedMountainElement);
 
-  displayMountainInfo.innerHTML = `
-  <div class="card mb-3 mountain-card">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="images/${mountain.img}" class="card-img-top img-fluid mountain-image" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title mountain-title">${mountain.name}</h5>
-          <p class="card-text mountain-description">${mountain.desc}</p>
-          <p class="card-text mountain-info">Elevation: ${mountain.elevation} feet</p>
-          <p class="card-text mountain-info">Effort: ${mountain.effort}</p>
-          <p><i class="bi bi-sunrise"></i> Sunrise: <span id="sunriseTime"></span> UTC</p>
-          <p><i class="bi bi-sunset-fill"></i> Sunset: <span id="sunsetTime"></span> UTC</p>
+  mountainInfoSection.innerHTML = `
+    <div class="card mb-3 mountain-card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="images/${mountain.img}" class="card-img-top img-fluid mountain-image" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title mountain-title">${mountain.name}</h5>
+            <p class="card-text mountain-description">${mountain.desc}</p>
+            <p class="card-text mountain-info">Elevation: ${mountain.elevation} feet</p>
+            <p class="card-text mountain-info">Effort: ${mountain.effort}</p>
+            <p><i class="bi bi-sunrise"></i> Sunrise: <span id="sunriseTime"></span> UTC</p>
+            <p><i class="bi bi-sunset-fill"></i> Sunset: <span id="sunsetTime"></span> UTC</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
 
+  const sunriseTimeElement = document.querySelector("#sunriseTime");
+  const sunsetTimeElement = document.querySelector("#sunsetTime");
 
-
-
-  const sunriseTime = document.querySelector("#sunriseTime");
-  const sunsetTime = document.querySelector("#sunsetTime");
-
-  getSunsetForMountain(mountain.coords.lat, mountain.coords.lng)
+  fetchSunriseSunsetTime(mountain.coords.lat, mountain.coords.lng)
     .then((data) => {
-      sunriseTime.textContent = data.results.sunrise;
-      sunsetTime.textContent = data.results.sunset;
+      sunriseTimeElement.textContent = data.results.sunrise;
+      sunsetTimeElement.textContent = data.results.sunset;
     });
 }
 
-// Function to fetch the sunrise/sunset times
-async function getSunsetForMountain(lat, lng) {
+async function fetchSunriseSunsetTime(lat, lng) {
   const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`);
   const data = await response.json();
   return data;
 }
+
 
