@@ -1,65 +1,144 @@
-//Author: Zhayida Haishan
+import { locationsArray } from "./locationData.js";
+import { parkTypesArray } from "./parkTypeData.js";
+import { nationalParksArray } from "./nationalParkData.js";
 
-// ------- script ------- //
+const filterSearchBy = ["Location", "Park Type"];
+const filterSearchByList = document.querySelector("#filterSearchBy");
+const labelSearchTypeList = document.querySelector("#labelSearchTypeList");
+const searchTypeList = document.querySelector("#searchTypeList");
+const divParksList = document.querySelector("#divParksList");
+const parksList = document.querySelector("#parksList");
+const displayParksInfo = document.querySelector("#displayParksInfo");
+const btnViewAll = document.querySelector("#btnViewAll");
+let filterSelect = "";
 
-import { mountainsArray } from "./mountainData.js";
-import { createNewDropdown } from "./script.js";
+window.addEventListener("load", () => {
+  nationalParksArray.forEach(obj => {
+    Object.keys(obj).forEach(k => {
+      if (obj[k] === 0) {
+        obj[k] = "";
+      }
+    });
+  });
 
-const mountainsList = document.querySelector("#mountainsList");
-const displayMountainInfo = document.querySelector("#displayMountainInfo");
+  btnViewAll.addEventListener("click", onBtnViewAll);
+  createNewDropdown(filterSearchBy, "#filterSearchBy");
+  filterSearchByList.addEventListener("change", onChangeFilterSearchBy);
+  searchTypeList.addEventListener("change", onChangeSearchTypeList);
+  parksList.addEventListener("change", onChangeParksList);
+  hideElement(searchTypeList);
+  hideElement(divParksList);
+});
 
-// On page load
-window.onload = () => {
-  createNewDropdown(getMountainNames(mountainsArray), "#mountainsList");
-  mountainsList.addEventListener("change", createMountainInfoCard);
-};
-
-// Get mountain names from the array
-function getMountainNames(array) {
-  return array.map((obj) => obj.name).sort();
+export function createNewDropdown(myArrayList, nameOfDropdown) {
+  const newDropdown = document.querySelector(nameOfDropdown);
+  newDropdown.innerHTML = '<option>Select one</option>';
+  myArrayList.forEach(element => {
+    const theOption = new Option(element);
+    newDropdown.appendChild(theOption);
+  });
 }
 
-// Create info card for the selected mountain and display
-function createMountainInfoCard() {
-  const selectedMountain = mountainsList.value;
-  const mountain = mountainsArray.find((obj) => obj.name === selectedMountain);
+function onBtnViewAll() {
+  resetElement(filterSearchByList);
+  createNewDropdown(filterSearchBy, "#filterSearchBy");
+  resetElement(displayParksInfo);
+  nationalParksArray.forEach(obj => createParkInfoCard(obj));
+  hideElement(labelSearchTypeList);
+  hideElement(searchTypeList);
+  hideElement(divParksList);
+}
 
-  displayMountainInfo.innerHTML = `
-  <div class="card mb-3 mountain-card">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="images/${mountain.img}" class="card-img-top img-fluid mountain-image" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title mountain-title">${mountain.name}</h5>
-          <p class="card-text mountain-description">${mountain.desc}</p>
-          <p class="card-text mountain-info">Elevation: ${mountain.elevation} feet</p>
-          <p class="card-text mountain-info">Effort: ${mountain.effort}</p>
-          <p><i class="bi bi-sunrise"></i> Sunrise: <span id="sunriseTime"></span> UTC</p>
-          <p><i class="bi bi-sunset-fill"></i> Sunset: <span id="sunsetTime"></span> UTC</p>
-        </div>
+function onChangeFilterSearchBy() {
+  const index = filterSearchByList.selectedIndex;
+  const selectedText = filterSearchByList[index].text;
+  resetElement(searchTypeList);
+  resetElement(displayParksInfo);
+  showElement(labelSearchTypeList);
+  showElement(searchTypeList);
+  hideElement(divParksList);
+
+  if (selectedText === "Location") {
+    labelSearchTypeList.innerHTML = "Choose a state/territory:";
+    createNewDropdown(locationsArray, "#searchTypeList");
+    filterSelect = "Location";
+  } else if (selectedText === "Park Type") {
+    labelSearchTypeList.innerHTML = "Choose a park type:";
+    createNewDropdown(parkTypesArray, "#searchTypeList");
+    filterSelect = "Park Type";
+  } else if (selectedText === "Select one") {
+    hideElement(labelSearchTypeList);
+    hideElement(searchTypeList);
+  }
+}
+
+function onChangeSearchTypeList() {
+  const index = searchTypeList.selectedIndex;
+  const selectedText = searchTypeList[index].text;
+  const matching = [];
+  resetElement(parksList);
+  resetElement(displayParksInfo);
+  showElement(divParksList);
+
+  nationalParksArray.filter(obj => {
+    if (filterSelect === "Location") {
+      if (obj.State === selectedText) {
+        matching.push(obj.LocationName);
+        createParkInfoCard(obj);
+      }
+    } else if (filterSelect === "Park Type") {
+      if (obj.LocationName.toLowerCase().includes(selectedText.toLowerCase())) {
+        matching.push(obj.LocationName);
+        createParkInfoCard(obj);
+      }
+    }
+  });
+
+  createNewDropdown(matching, "#parksList");
+  if (selectedText === "Select one") {
+    hideElement(divParksList);
+  }
+  showElement(displayParksInfo);
+}
+
+function onChangeParksList() {
+  const index = parksList.selectedIndex;
+  const selectedText = parksList[index].text;
+  resetElement(displayParksInfo);
+
+  nationalParksArray.find(element => {
+    if (element.LocationName === selectedText) {
+      createParkInfoCard(element);
+    }
+  });
+}
+
+function createParkInfoCard(object) {
+  const parkInfo = `
+  <div class="row">
+  <div class="col">
+    <div class="park-info">
+      <h5 class="park-info-title">${object.LocationName}</h5>
+      <div class="park-info-details">
+        <p><strong>Location ID:</strong> ${object.LocationID.toUpperCase()}</p>
+        <p><strong>Address:</strong> ${object.Address}, ${object.City}, ${object.State} ${object.ZipCode}</p>
+        <p><strong>Contact:</strong> ${object.Phone} ${object.Fax}</p>
       </div>
     </div>
-  </div>`;
+  </div>
+</div>`;
 
-
-
-
-  const sunriseTime = document.querySelector("#sunriseTime");
-  const sunsetTime = document.querySelector("#sunsetTime");
-
-  getSunsetForMountain(mountain.coords.lat, mountain.coords.lng)
-    .then((data) => {
-      sunriseTime.textContent = data.results.sunrise;
-      sunsetTime.textContent = data.results.sunset;
-    });
+  displayParksInfo.innerHTML += parkInfo;
 }
 
-// Function to fetch the sunrise/sunset times
-async function getSunsetForMountain(lat, lng) {
-  const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`);
-  const data = await response.json();
-  return data;
-}
 
+
+function hideElement(element) {
+  element.style.display = "none";
+}
+function showElement(element) {
+  element.style.display = "flex";
+}
+function resetElement(element) {
+  element.innerHTML = "";
+}
