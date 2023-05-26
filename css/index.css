@@ -61,6 +61,8 @@ body {
   line-height: 25px;
 }
 
+
+/* HomeBtn*/
 .btnHome {
   text-decoration: none;
   font-size: 0.9rem;
@@ -116,51 +118,14 @@ body {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  max-width: 400px; /* Adjust the width as per your preference */
-  margin: 0 auto; /* Center the image horizontally */
-}
-
-/* Banner */
-#about {
-  background-color: #ffffff;
-  padding: 50px;
-  text-align: center;
-}
-
-#about h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-#about p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 /* Additional Styles */
-
-/* Background gradient */
-.bg-gradient {
-  background: linear-gradient(45deg, #905511, #e52e71);
-}
-
-/* Text color */
 .text-white {
   color: #fff !important;
 }
-
-/* Rounded borders */
-.rounded {
-  border-radius: 10px;
-}
-
-/* Box shadow */
-.box-shadow {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-
 
 /* Navigation Bar */
 .navbar {
@@ -200,15 +165,6 @@ body {
   color: #3a69d7;
 }
 
-/* Content Container */
-.content {
-  margin-top: 60px;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Add dimming effect for video and adjust text color */
 .back-video:before {
   content: "";
   position: absolute;
@@ -218,10 +174,6 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
-}
-
-.image-description {
-  z-index: 2;
 }
 
 @media (max-width: 767px) {
