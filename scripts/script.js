@@ -1,7 +1,3 @@
-//Author: Zhayida Haishan
-
-// ------- script file ------- //
-
 import { locationsArray } from "./locationData.js";
 import { parkTypesArray } from "./parkTypeData.js";
 import { nationalParksArray } from "./nationalParkData.js";
@@ -17,9 +13,13 @@ const btnViewAll = document.querySelector("#btnViewAll");
 let filterSelect = "";
 
 window.addEventListener("load", () => {
-  nationalParksArray.forEach(obj =>
-    Object.keys(obj).forEach(k => (obj[k] === 0 ? (obj[k] = "") : obj[k]))
-  );
+  nationalParksArray.forEach(obj => {
+    Object.keys(obj).forEach(k => {
+      if (obj[k] === 0) {
+        obj[k] = "";
+      }
+    });
+  });
 
   btnViewAll.addEventListener("click", onBtnViewAll);
   createNewDropdown(filterSearchBy, "#filterSearchBy");
@@ -78,7 +78,7 @@ function onChangeSearchTypeList() {
   const matching = [];
   resetElement(parksList);
   resetElement(displayParksInfo);
-  showElement(divParksList);
+  // showElement(divParksList);
 
   nationalParksArray.filter(obj => {
     if (filterSelect === "Location") {
@@ -95,44 +95,44 @@ function onChangeSearchTypeList() {
   });
 
   createNewDropdown(matching, "#parksList");
-    if (selectedText === "Select one") {
-        hideElement(divParksList);
-    }
-    showElement(displayParksInfo);
+  if (selectedText === "Select one") {
+    hideElement(divParksList);
+  }
+  showElement(displayParksInfo);
 }
-    
+
 function onChangeParksList() {
-    const index = parksList.selectedIndex;
-    const selectedText = parksList[index].text;
-    resetElement(displayParksInfo);
-    
-    nationalParksArray.find(element => {
-        if (element.LocationName === selectedText) {
-            createParkInfoCard(element);
-        }
-    });
+  const index = parksList.selectedIndex;
+  const selectedText = parksList[index].text;
+  resetElement(displayParksInfo);
+
+  nationalParksArray.find(element => {
+    if (element.LocationName === selectedText) {
+      createParkInfoCard(element);
+    }
+  });
 }
-    
+
 function createParkInfoCard(object) {
-    const card = document.createElement("div");
-    card.classList.add("card", "mb-3");
-    card.innerHTML = 
-    `<h5 class="card-header">${object.LocationName}</h5> 
-    <div class="card-body"> 
-    <p><strong>Location ID:</strong> ${object.LocationID.toUpperCase()}</p> 
-    <p><strong>Address:</strong> ${object.Address}, ${object.City}, ${object.State} ${object.ZipCode}</p> <p><strong>Contact:</strong> ${object.Phone} ${object.Fax}</p> </div> `;
-    
-    displayParksInfo.appendChild(card);
+  const parkInfo = `
+    <div class="col-4">
+      <h5 class="card-header">${object.LocationName}</h5>
+      <div class="card-body">
+        <p><strong>Location ID:</strong> ${object.LocationID.toUpperCase()}</p>
+        <p><strong>Address:</strong> ${object.Address}, ${object.City}, ${object.State} ${object.ZipCode}</p>
+        <p><strong>Contact:</strong> ${object.Phone} ${object.Fax}</p>
+      </div>
+    </div>`;
+
+  displayParksInfo.innerHTML += parkInfo;
 }
-    
+
 function hideElement(element) {
-    element.style.display = "none";
+  element.style.display = "none";
 }
-    
 function showElement(element) {
-    element.style.display = "block";
+  element.style.display = "flex";
 }
-    
 function resetElement(element) {
-    element.innerHTML = "";
+  element.innerHTML = "";
 }
