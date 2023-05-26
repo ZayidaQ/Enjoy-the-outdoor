@@ -110,6 +110,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  text-align: center;
 }
 
 #displayParksInfo > div {
@@ -122,6 +123,8 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out;
+  align-items: center;
+  text-align: center;
 }
 
 #displayParksInfo > div:nth-child(3n+3) {
@@ -139,16 +142,28 @@ body {
   color: #333333;
 }
 
+#displayParksInfo div.park-info-title{
+  padding: 10px;
+}
+
+#displayParksInfo h5 {
+  padding: 15px;
+  background-color: #d9e7ff;
+  border-radius: 10px;
+}
+
+
 #displayParksInfo p {
   font-size: 0.9rem;
   color: #777777;
+  text-align: left;
 }
 
 #displayParksInfo a {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #007bff;
+  background-color: #7591be;
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;

@@ -115,24 +115,44 @@ function onChangeParksList() {
     }
   });
 }
-
 function createParkInfoCard(object) {
   const parkInfo = `
-  <div class="row">
-  <div class="col">
-    <div class="park-info">
-      <h5 class="park-info-title">${object.LocationName}</h5>
-      <div class="park-info-details">
-        <p><strong>Location ID:</strong> ${object.LocationID.toUpperCase()}</p>
-        <p><strong>Address:</strong> ${object.Address}, ${object.City}, ${object.State} ${object.ZipCode}</p>
-        <p><strong>Contact:</strong> ${object.Phone} ${object.Fax}</p>
+    <div class="row">
+      <div class="col">
+        <div class="park-info">
+          <h5 class="park-info-title" style="font-weight: bold;">${object.LocationName}</h5>
+          <div class="park-info-details">
+            <p><strong>Location ID:</strong> ${object.LocationID.toUpperCase()}</p>
+            <p><strong>Address:</strong> ${object.Address}, ${object.City}, ${object.State} ${object.ZipCode}</p>
+            <p><strong>Contact:</strong> ${object.Phone} ${object.Fax}</p>
+            <a href="${object.Visit}" target="_blank" >Visit</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>`;
+    </div>`;
 
   displayParksInfo.innerHTML += parkInfo;
 }
+
+// function createParkInfoCard(object) {
+//   const parkInfo = `
+//     <div class="row">
+//       <div class="col">
+//         <div class="park-info">
+//           <h5 class="park-info-title">
+//             <a>${object.Visit}</a>
+//           </h5>
+//           <div class="park-info-details">
+//             <p><strong>Location ID:</strong> ${object.LocationID.toUpperCase()}</p>
+//             <p><strong>Address:</strong> ${object.Address}, ${object.City}, ${object.State} ${object.ZipCode}</p>
+//             <p><strong>Contact:</strong> ${object.Phone} ${object.Fax}</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>`;
+//   displayParksInfo.innerHTML += parkInfo;
+// }
+
 
 
 

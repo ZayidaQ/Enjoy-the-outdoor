@@ -16,6 +16,14 @@ function retrieveMountainNames(array) {
   return array.map((obj) => obj.name).sort();
 }
 
+
+
+
+
+
+
+
+
 function generateMountainCard() {
   const selectedMountainElement = listOfMountain.value;
   const mountain = mountainsArray.find((obj) => obj.name === selectedMountainElement);
@@ -48,6 +56,16 @@ function generateMountainCard() {
       sunsetTimeElement.textContent = data.results.sunset;
     });
 }
+
+
+
+
+
+
+
+
+
+
 
 async function fetchSunriseSunsetTime(lat, lng) {
   const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`);
