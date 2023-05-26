@@ -7,12 +7,12 @@ import { nationalParksArray } from "./nationalParkData.js";
 const searchFilters = ["Area", "Park Category"];
 const filterDropdown = document.querySelector("#filterSearchBy");
 const labelSearchFilter = document.querySelector("#labelSearchTypeList");
-const searchTypeList = document.querySelector("#searchTypeList");
-const divParksList = document.querySelector("#divParksList");
+const searchFilterDropdown = document.querySelector("#searchTypeList");
+const parksContainer = document.querySelector("#divParksList");
 const parksList = document.querySelector("#parksList");
 const displayParksInfo = document.querySelector("#displayParksInfo");
-const btnViewAll = document.querySelector("#btnViewAll");
-let filterSelect = "";
+const btnShowAll = document.querySelector("#btnViewAll");
+let selectedFilter = "";
 
 window.addEventListener("load", () => {
   nationalParksArray.forEach(obj => {
@@ -23,72 +23,73 @@ window.addEventListener("load", () => {
     });
   });
 
-  btnViewAll.addEventListener("click", onBtnViewAll);
+  btnShowAll.addEventListener("click", onBtnViewAll);
   createNewDropdown(searchFilters, "#filterSearchBy");
   filterDropdown.addEventListener("change", onChangeFilterSearchBy);
-  searchTypeList.addEventListener("change", onChangeSearchTypeList);
+  searchFilterDropdown.addEventListener("change", onChangeSearchTypeList);
   parksList.addEventListener("change", onChangeParksList);
-  hideElement(searchTypeList);
-  hideElement(divParksList);
+  hideElement(searchFilterDropdown);
+  hideElement(parksContainer);
 });
 
-export function createNewDropdown(myArrayList, nameOfDropdown) {
+export function createNewDropdown(ArrayList, nameOfDropdown) {
   const newDropdown = document.querySelector(nameOfDropdown);
-  newDropdown.innerHTML = '<option>Select one</option>';
-  myArrayList.forEach(element => {
+  newDropdown.innerHTML = '<option>Select</option>';
+  ArrayList.forEach(element => {
     const theOption = new Option(element);
     newDropdown.appendChild(theOption);
   });
 }
 
-function onBtnViewAll() {
+function onBtnViewAll(event) {
+  event.preventDefault();
   resetElement(filterDropdown);
   createNewDropdown(searchFilters, "#filterSearchBy");
   resetElement(displayParksInfo);
   nationalParksArray.forEach(obj => createParkInfoCard(obj));
   hideElement(labelSearchFilter);
-  hideElement(searchTypeList);
-  hideElement(divParksList);
+  hideElement(searchFilterDropdown);
+  hideElement(parksContainer);
 }
 
 function onChangeFilterSearchBy() {
   const index = filterDropdown.selectedIndex;
   const selectedText = filterDropdown[index].text;
-  resetElement(searchTypeList);
+  resetElement(searchFilterDropdown);
   resetElement(displayParksInfo);
   showElement(labelSearchFilter);
-  showElement(searchTypeList);
-  hideElement(divParksList);
+  showElement(searchFilterDropdown);
+  hideElement(parksContainer);
 
   if (selectedText === "Area") {
-    labelSearchFilter.innerHTML = "Choose a state/territory:";
+    labelSearchFilter.innerHTML = " ";
     createNewDropdown(locationsArray, "#searchTypeList");
-    filterSelect = "Area";
+    selectedFilter = "Area";
   } else if (selectedText === "Park Category") {
-    labelSearchFilter.innerHTML = "Choose a park type:";
+    labelSearchFilter.innerHTML = " ";
     createNewDropdown(parkTypesArray, "#searchTypeList");
-    filterSelect = "Park Category";
+    selectedFilter = "Park Category";
   } else if (selectedText === "Select one") {
     hideElement(labelSearchFilter);
-    hideElement(searchTypeList);
+    hideElement(searchFilterDropdown);
   }
 }
 
 function onChangeSearchTypeList() {
-  const index = searchTypeList.selectedIndex;
-  const selectedText = searchTypeList[index].text;
+  const index = searchFilterDropdown.selectedIndex;
+  const selectedText = searchFilterDropdown[index].text;
   const matching = [];
   resetElement(parksList);
   resetElement(displayParksInfo);
-  showElement(divParksList);
+  showElement(parksContainer);
 
   nationalParksArray.filter(obj => {
-    if (filterSelect === "Area") {
+    if (selectedFilter === "Area") {
       if (obj.State === selectedText) {
         matching.push(obj.LocationName);
         createParkInfoCard(obj);
       }
-    } else if (filterSelect === "Park Category") {
+    } else if (selectedFilter === "Park Category") {
       if (obj.LocationName.toLowerCase().includes(selectedText.toLowerCase())) {
         matching.push(obj.LocationName);
         createParkInfoCard(obj);
@@ -98,7 +99,7 @@ function onChangeSearchTypeList() {
 
   createNewDropdown(matching, "#parksList");
   if (selectedText === "Select one") {
-    hideElement(divParksList);
+    hideElement(parksContainer);
   }
   showElement(displayParksInfo);
 }

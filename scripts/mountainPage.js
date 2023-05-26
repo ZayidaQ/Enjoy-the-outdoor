@@ -3,6 +3,7 @@
 import { mountainsArray } from "./mountainData.js";
 import { createNewDropdown } from "./script.js";
 
+"use strict";
 const listOfMountain = document.querySelector("#mountainsList");
 const mountainInfoSection = document.querySelector("#displayMountainInfo");
 
@@ -53,5 +54,3 @@ async function fetchSunriseSunsetTime(lat, lng) {
   const data = await response.json();
   return data;
 }
-
-
