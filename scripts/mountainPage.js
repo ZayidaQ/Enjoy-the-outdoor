@@ -16,14 +16,6 @@ function retrieveMountainNames(array) {
   return array.map((obj) => obj.name).sort();
 }
 
-
-
-
-
-
-
-
-
 function generateMountainCard() {
   const selectedMountainElement = listOfMountain.value;
   const mountain = mountainsArray.find((obj) => obj.name === selectedMountainElement);
@@ -40,8 +32,10 @@ function generateMountainCard() {
             <p class="card-text mountain-description">${mountain.desc}</p>
             <p class="card-text mountain-info">Elevation: ${mountain.elevation} feet</p>
             <p class="card-text mountain-info">Effort: ${mountain.effort}</p>
-            <p><i class="bi bi-sunrise"></i> Sunrise: <span id="sunriseTime"></span> UTC</p>
-            <p><i class="bi bi-sunset-fill"></i> Sunset: <span id="sunsetTime"></span> UTC</p>
+            <p class="card-text mountain-info">Coordinates: ${mountain.coords.lat}, ${mountain.coords.lng}</p>
+            <hr/>
+            <p><i class="bi bi-sunrise"></i> &#x2600; Sunrise: <span id="sunriseTime"></span> UTC</p>
+            <p><i class="bi bi-sunset-fill"></i> &#x263E; Sunset: <span id="sunsetTime"></span> UTC</p>
           </div>
         </div>
       </div>
@@ -56,16 +50,6 @@ function generateMountainCard() {
       sunsetTimeElement.textContent = data.results.sunset;
     });
 }
-
-
-
-
-
-
-
-
-
-
 
 async function fetchSunriseSunsetTime(lat, lng) {
   const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`);

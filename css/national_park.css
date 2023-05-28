@@ -148,8 +148,9 @@ body {
 
 #displayParksInfo h5 {
   padding: 15px;
-  background-color: #d9e7ff;
-  border-radius: 10px;
+  background-color: #bfcedf;
+  border-radius: 2px;
+  color: #474747;
 }
 
 
