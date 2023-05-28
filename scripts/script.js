@@ -116,13 +116,6 @@ function onChangeParksList() {
   });
 }
 
-
-
-
-
-
-
-
 function createParkInfoCard(object) {
   const parkInfo = `
     <div class="row">
@@ -142,13 +135,6 @@ function createParkInfoCard(object) {
 
   displayParksInfo.innerHTML += parkInfo;
 }
-
-
-
-
-
-
-
 
 function hideElement(element) {
   element.style.display = "none";
