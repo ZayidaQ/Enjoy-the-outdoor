@@ -7,7 +7,7 @@
 Welcome to TrailTrekker, an exciting and user-friendly outdoor website designed to enhance your exploration of parks and mountains. Whether you're an avid hiker, nature enthusiast, or simply looking to spend quality time in the great outdoors, TrailTrekker is here to provide you with the information you need to make the most of your adventures.
 
 With TrailTrekker, searching for parks and mountains is a breeze. Our intuitive search functionality allows you to easily find your desired destination. Whether you're interested in discovering a picturesque national park or conquering a majestic mountain peak, TrailTrekker has got you covered.
-
+Home
 ## Built With >
 * HTML
 * CSS
