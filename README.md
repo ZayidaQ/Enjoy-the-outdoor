@@ -1,7 +1,7 @@
-## 12nd Capstone project
+## 2nd Capstone project
 # TrailTrekker
 
-<img src="./images/TrailTrekker.PNG" width="50%">
+<img src="images/TrailTrekker.png" width="40%">
  
 ## About the project >
 Welcome to TrailTrekker, an exciting and user-friendly outdoor website designed to enhance your exploration of parks and mountains. Whether you're an avid hiker, nature enthusiast, or simply looking to spend quality time in the great outdoors, TrailTrekker is here to provide you with the information you need to make the most of your adventures.
