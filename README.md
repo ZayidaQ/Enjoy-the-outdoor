@@ -1,7 +1,7 @@
 ## 2nd Capstone project
 # TrailTrekker
 
-<img src="images/TrailTrekker.PNG" width="50%">
+<img src="images/TrailTrekker.png" width="50%">
  
 ## About the project >
 Welcome to Urban Furnishings, a modern e-commerce furniture store with a concept similar to IKEA. This store offers a wide range of unique and affordable furniture pieces for all kinds of spaces, from apartments to homes and offices. This README.md file serves as an introduction to my e-commerce store and outlines our key features.
