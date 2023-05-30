@@ -12,15 +12,7 @@ Home
 * HTML
 * CSS
 * JS
-* Bootstrap
-
-## pages features >
-* Landing Page - The main page features a top navigation bar and a captivating hero section with a looping video and text overlay with two buttons that would lead you to our National park, or mountain page. Below that, you'll find a concise "About Us" section, followed by a footer with important links. It's a sleek and engaging design that ensures easy navigation and provides essential information.
-
-* National Park - On the National Park page, we maintain a consistent design with the navigation bar and footer, ensuring a seamless experience throughout the website. The hero section features a picture of a park with a selection bar and two buttons: "View All Parks" and "Reset." As you navigate, the selection bar dynamically updates, and the relevant parks appear below based on your selection. If available, a link to the park's main site is provided for further exploration.
-
-* Mountains -On the Mountains page, you'll find the familiar navigation bar and footer for consistency. The hero section, similar to the National Park page, showcases a captivating layout. However, instead of multiple selection options, you'll encounter a single selection bar, eliminating the need for buttons. As you make your selection, the search result will showcase a single outcome, tailored to your choice. This streamlined approach ensures a focused and efficient experience when exploring mountains. One unique feature is its real-time data integration for sunrise and sunset times. Using live data sources, it provides up-to-date information, allowing you to plan activities and capture beautiful moments in the golden hour. 
-
+* Bootstrap 
 ## Interesting concepts
 1. Mountain Card
 
@@ -118,12 +110,31 @@ function generateMountainCard() {
     });
 }
 ```
-# Screenshots of website
+# Screenshots of website / Features
+**Homepage / Landing page**
+* The main page features a top navigation bar and a captivating hero section with a looping video and text overlay with two buttons that would lead you to our National park, or mountain page.
 <img src="images/SS1.png" width="65%">
+
+* Below that, you'll find a concise "About Us" section, followed by a footer with important links. It's a sleek and engaging design that ensures easy navigation and provides essential information.
 <img src="images/SS2.png" width="65%">
+
+
+**National park page**
+* On the National Park page, we maintain a consistent design with the navigation bar and footer, ensuring a seamless experience throughout the website. The hero section features a picture of a park with a selection bar and two buttons: "View All Parks" and "Reset." These buttons allow you to easily explore all the parks or start fresh with your selection.
 <img src="images/SS3.png" width="65%">
+
+* As you navigate through the selection bar, the next set of options dynamically appears based on your previous selection. This intuitive approach makes it effortless to refine your search and find the perfect park that meets your interests or criteria. 
 <img src="images/SS4.png" width="65%">
+
+* Directly below the selection bar, the relevant parks are displayed, catering specifically to your chosen filters. If a park has its own dedicated website, a convenient link will be available, allowing you to delve deeper into the park's unique offerings.
 <img src="images/SS5.png" width="65%">
+
+* It also has a cool hovering effect!
 <img src="images/SS8.png" width="65%">
+
+**Mountain park page**
+* On the Mountains page, you'll find the familiar navigation bar and footer that provide a consistent experience across the website. The hero section, similar in size and layout to the National Park page, greets you with a captivating display. However, instead of multiple selection options, you'll encounter a single selection bar, eliminating the need for buttons.
 <img src="images/SS6.png" width="65%">
+
+* This streamlined approach ensures a focused and efficient experience when exploring mountains. One unique feature is its real-time data integration for sunrise and sunset times. Using live data sources, it provides up-to-date information, allowing you to plan activities and capture beautiful moments in the golden hour.
 <img src="images/SS7.png" width="65%">
